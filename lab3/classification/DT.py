@@ -1,4 +1,4 @@
-from functions import readData, printAccuracy
+from functions import readData, printAccuracy, printTree
 from sklearn.model_selection import GridSearchCV
 from sklearn.tree import DecisionTreeClassifier
 import pandas as pd
@@ -28,4 +28,6 @@ dt_best = grid_search.best_estimator_
 y_pred = dt_best.predict(X_test)
 
 printAccuracy(y_test, y_pred)
+
+printTree(dt_best)
 

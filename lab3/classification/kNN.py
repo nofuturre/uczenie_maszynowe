@@ -1,4 +1,4 @@
-from functions import readData, printAccuracy
+from functions import readData, printAccuracy, printTree
 from sklearn.model_selection import GridSearchCV
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import metrics

@@ -8,6 +8,8 @@ from sklearn.metrics import (
     confusion_matrix,
     ConfusionMatrixDisplay
 )
+from sklearn import tree
+
 
 def readData():
     df = pd.read_csv('mushroom_cleaned.csv')
@@ -29,6 +31,15 @@ def printAccuracy(y_test,y_pred):
     cm = confusion_matrix(y_test, y_pred, labels=labels)
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
     disp.plot()
+    plt.show()
+
+def printTree(dt_classifier):
+    columns = ['cap-diameter','cap-shape','gill-attachment','gill-color','stem-height','stem-width','stem-color','season']
+    fig = plt.figure(figsize=(25,20))
+    _ = tree.plot_tree(dt_classifier,
+                       feature_names=columns,
+                       class_names=['edible', "poisonous"],
+                       filled=True)
     plt.show()
 
 def univariateAnalysis_numeric1(data, column,nbins):
